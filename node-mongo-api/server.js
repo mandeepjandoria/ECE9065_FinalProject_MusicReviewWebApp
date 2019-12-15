@@ -13,14 +13,11 @@ app.use(cors());
 // use JWT auth to secure the api
 app.use(jwt());
 
-// user api routes
+// api routes
 app.use('/users', require('./users/users.controller'));
-
-// service api routes
 app.use('/services', require('./services/services.controller'));
-
-// song api routes
 app.use('/songs', require('./songs/songs.controller'));
+app.use('/reviews', require('./reviews/reviews.controller'));
 
 // global error handler
 app.use(errorHandler);

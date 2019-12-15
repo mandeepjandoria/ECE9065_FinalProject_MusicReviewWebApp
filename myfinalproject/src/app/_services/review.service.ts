@@ -7,7 +7,7 @@ import { Review } from '@/_models';
 export class ReviewService {
     constructor(private http: HttpClient) { }
 
-    getAllReviewsForSong(id: number) {
+    getAllReviewsForSong(id: string) {
         return this.http.get<Review[]>(`${config.apiUrl}/reviews/${id}`);
     }
 

@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
             .subscribe(songs => this.songs = songs);
     }
 
-    private viewReviews(id: number) {
+    private viewReviews(id: string) {
         this.reviewService.getAllReviewsForSong(id)
             .pipe(first())
             .subscribe(reviews => this.reviews = reviews);

@@ -3,6 +3,7 @@ const config = require('config.json');
 const userService = require('../users/user.service');
 const serviceService = require('../services/service.service');
 const songService = require('../songs/song.service');
+const reviewService = require('../reviews/review.service');
 
 module.exports = jwt;
 
@@ -15,7 +16,10 @@ function jwt() {
             '/users/register',
             '/services',
             '/songs',
-            '/songs/create'
+            '/songs/create',
+            '/reviews/create',
+            '/reviews/' + reviewService.getAllById,
+            '/reviews'
         ]
     });
 }
