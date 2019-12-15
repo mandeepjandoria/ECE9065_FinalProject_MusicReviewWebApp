@@ -17,6 +17,11 @@ async function authenticate({ username, password }) {
 	debugger;
 	// find(query).limit(1).next(function(err, doc){
     const user = await User.findOne({ username });
+    // validate status
+    if (user.status !== 'active' && await User.findOne({ username })) {
+        throw 'Email "' + user.username + '" is inactive. Contact the Admin to regain access.';
+    }
+    
     if (user && bcrypt.compareSync(password, user.hash)) {
         const { hash, ...userWithoutHash } = user.toObject();
         const token = jwt.sign({ sub: user.id }, config.secret);
