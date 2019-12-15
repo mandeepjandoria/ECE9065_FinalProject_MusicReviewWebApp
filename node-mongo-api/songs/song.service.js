@@ -4,12 +4,12 @@ const db = require('_helpers/db');
 const Song = require('../songs/song.model.js');
 
 module.exports = {
-    // create,
+    create,
 	getAll
 };
 
 async function getAll() {
-     return await Song.find();
+    return await Song.find();
 }
 
 // exports.getAll = (req, res) => {
@@ -23,19 +23,20 @@ async function getAll() {
     // });
 // };
 
-// async function create(songParam) {
-    // const song = new Song(songParam);
-    // // validate
+async function create(songParam) {
+    const song = new Song(songParam);
+    // validate
     // if (await Song.findOne({ songname: songParam.songname })) {
-        // throw 'Song name "' + songParam.songname + '" already exists.';
+    //     throw 'Song name "' + songParam.songname + '" already exists.';
     // }
-        
-    // song.artist = songParam.artist;
-    // song.year = songParam.year;
-    // song.genre = songParam.genre;
-    // song.createdby = songParam.createdby;
 
-    // // save user
-    // await song.save();
-// }
+    song.songname = songParam.songname;
+    song.artist = songParam.artist;
+    song.year = songParam.year;
+    song.genre = songParam.genre;
+    song.createdby = songParam.createdby;
+
+    // save user
+    await song.save();
+}
 
