@@ -6,7 +6,7 @@ const schema = new Schema({
     description: { type: Number, required: false },
     visibility: { type: String, required: false },
     createdby: { type: String, required: true },
-    songs[]: { type: String, required: true }
+    songs[]: { type: String, required: false }
 });
 
 schema.set('toJSON', { virtuals: true });

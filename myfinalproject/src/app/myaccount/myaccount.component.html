@@ -58,7 +58,44 @@
         </div>
         
         <div class="col-sm-6">
-            <h3>Playlists:</h3>
+            <h3>Create Playlist</h3>
+            <form [formGroup]="playlistForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="listname">Playlist Name</label>
+                    <input type="text" formControlName="listname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.listname.errors }" />
+                    <div *ngIf="submitted && f.listname.errors" class="invalid-feedback">
+                        <div *ngIf="f.listname.errors.required">Playlist name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" formControlName="description" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="visibility">Visibility</label>
+                    <select name="visibility" formControlName="visibility" class="form-control">
+                        <option value="private">Private</option>
+                        <option value="public">Public</option>
+                      </select>
+                    <!-- <input type="text" formControlName="year" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.year.errors }" />
+                    <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                        <div *ngIf="f.year.errors.required">Year is required</div>
+                    </div> -->
+                </div>
+                <div class="form-group">
+                    <label for="createdby">Created By</label>
+                    <input type="text" formControlName="createdby" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createdby.errors }" />
+                    <div *ngIf="submitted && f.createdby.errors" class="invalid-feedback">
+                        <div *ngIf="f.createdby.errors.required">Created By is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Add
+                    </button>
+                </div>
+            </form>
         </div>
 
         <div class="col-sm-6" *ngIf="currentUser">
