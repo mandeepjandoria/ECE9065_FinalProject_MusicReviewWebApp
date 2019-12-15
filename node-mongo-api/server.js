@@ -19,6 +19,9 @@ app.use('/users', require('./users/users.controller'));
 // service api routes
 app.use('/services', require('./services/services.controller'));
 
+// song api routes
+app.use('/songs', require('./songs/songs.controller'));
+
 // global error handler
 app.use(errorHandler);
 

@@ -2,6 +2,7 @@ const expressJwt = require('express-jwt');
 const config = require('config.json');
 const userService = require('../users/user.service');
 const serviceService = require('../services/service.service');
+const songService = require('../songs/song.service');
 
 module.exports = jwt;
 
@@ -12,7 +13,8 @@ function jwt() {
             // public routes that don't require authentication
             '/users/authenticate',
             '/users/register',
-			'/services'
+            '/services',
+            '/songs'
         ]
     });
 }

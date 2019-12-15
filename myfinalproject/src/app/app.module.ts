@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
+import { MyAccountComponent } from './myaccount';
 import { AlertComponent } from './_components';
 import { AboutComponent } from './about';
 
@@ -27,8 +28,9 @@ import { AboutComponent } from './about';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
+        MyAccountComponent,
         AlertComponent,
-		AboutComponent
+        AboutComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

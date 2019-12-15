@@ -1,34 +1,28 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { User } from '@/_models';
-import { UserService, AuthenticationService } from '@/_services';
+import { Song } from '@/_models';
+import { SongService } from '@/_services';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent implements OnInit {
-    currentUser: User;
-    users = [];
+    
+    songs = [];
 
     constructor(
-        private authenticationService: AuthenticationService,
-        private userService: UserService
-    ) {
-        this.currentUser = this.authenticationService.currentUserValue;
+        private songService: SongService
+    )
+    {
+
     }
 
     ngOnInit() {
-        this.loadAllUsers();
+        this.loadAllSongs();
     }
 
-    deleteUser(id: number) {
-        this.userService.delete(id)
+    private loadAllSongs() {
+        this.songService.getAll()
             .pipe(first())
-            .subscribe(() => this.loadAllUsers());
-    }
-
-    private loadAllUsers() {
-        this.userService.getAll()
-            .pipe(first())
-            .subscribe(users => this.users = users);
+            .subscribe(songs => this.songs = songs);
     }
 }

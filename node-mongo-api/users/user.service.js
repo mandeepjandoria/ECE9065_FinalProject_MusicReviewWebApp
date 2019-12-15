@@ -1,7 +1,7 @@
-﻿const config = require('config.json');
+﻿const config = require('../config.json');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const db = require('_helpers/db');
+const db = require('../_helpers/db');
 const User = db.User;
 
 module.exports = {
@@ -14,6 +14,8 @@ module.exports = {
 };
 
 async function authenticate({ username, password }) {
+	debugger;
+	// find(query).limit(1).next(function(err, doc){
     const user = await User.findOne({ username });
     if (user && bcrypt.compareSync(password, user.hash)) {
         const { hash, ...userWithoutHash } = user.toObject();
