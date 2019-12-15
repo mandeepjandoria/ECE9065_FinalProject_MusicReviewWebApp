@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div>
-                <p><strong>The available public songs:</strong></p>
+                <h3>Songs Available:</h3>
                 <table class="table table-hover">
                 <thead>
                 <tr>
@@ -58,10 +58,10 @@
         </div>
         
         <div class="col-sm-6">
-    
+            <h3>Playlists:</h3>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-6" *ngIf="currentUser">
             <h2>Add a new song</h2>
             <form [formGroup]="songForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">

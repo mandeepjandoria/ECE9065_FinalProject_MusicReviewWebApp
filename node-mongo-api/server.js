@@ -18,6 +18,7 @@ app.use('/users', require('./users/users.controller'));
 app.use('/services', require('./services/services.controller'));
 app.use('/songs', require('./songs/songs.controller'));
 app.use('/reviews', require('./reviews/reviews.controller'));
+app.use('/playlists', require('./playlists/playlists.controller'));
 
 // global error handler
 app.use(errorHandler);
