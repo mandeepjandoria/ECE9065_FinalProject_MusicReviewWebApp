@@ -1,7 +1,8 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { Song, Review } from '@/_models';
+import { Song } from '@/_models';
+import { Review } from '@/_models';
 import { SongService, ReviewService } from '@/_services';
 
 @Component({ templateUrl: 'home.component.html' })
