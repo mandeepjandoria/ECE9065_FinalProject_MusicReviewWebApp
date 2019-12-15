@@ -2,8 +2,7 @@
 <div>
     <ul>
         <li *ngFor="let song of songs">
-            {{song.songname}}
-            <!-- - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a> -->
+            {{song.songname}} - <a (click)="viewReviews(song.id)" class="text-danger">View Reviews</a>
         </li>
     </ul>
 </div>

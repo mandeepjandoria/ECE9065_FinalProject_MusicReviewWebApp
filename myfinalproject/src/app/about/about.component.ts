@@ -3,18 +3,21 @@ import { first } from 'rxjs/operators';
 
 import { User } from '@/_models';
 import { Service } from '@/_models';
-import { UserService, ServiceService } from '@/_services';
+import { UserService, ServiceService, AuthenticationService } from '@/_services';
 
 @Component({ templateUrl: 'about.component.html' })
 // export class AboutComponent implements OnInit {
 export class AboutComponent {
     
+    currentUser: User;
+    users = [];
 	services = [];
 
     constructor(
+        private authenticationService: AuthenticationService,
 		private serviceService: ServiceService
     ) {
-        
+        this.currentUser = this.authenticationService.currentUserValue;
     }
 
     ngOnInit() {
