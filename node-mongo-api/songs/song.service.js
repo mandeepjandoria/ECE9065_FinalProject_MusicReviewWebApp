@@ -5,7 +5,8 @@ const Song = require('../songs/song.model.js');
 
 module.exports = {
     create,
-	getAll
+    getAll,
+    delete: _delete
 };
 
 async function getAll() {
@@ -40,3 +41,6 @@ async function create(songParam) {
     await song.save();
 }
 
+async function _delete(id) {
+    await Song.findByIdAndRemove(id);
+}

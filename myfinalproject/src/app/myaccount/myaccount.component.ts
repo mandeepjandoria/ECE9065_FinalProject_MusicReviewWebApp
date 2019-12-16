@@ -67,11 +67,11 @@ export class MyAccountComponent implements OnInit {
     get f1() { return this.playlistForm.controls; }
     get f2() { return this.ratingForm.controls; }
 
-    // deleteUser(id: number) {
-    //     this.userService.delete(id)
-    //         .pipe(first())
-    //         .subscribe(() => this.loadAllUsers());
-    // }
+    deleteSong(id: string) {
+        this.songService.delete(id)
+            .pipe(first())
+            .subscribe(() => this.loadAllSongs());
+    }
 
     // private loadAllUsers() {
     //     this.userService.getAll()
