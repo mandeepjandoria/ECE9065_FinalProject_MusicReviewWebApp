@@ -36,7 +36,7 @@
 	    			<th scope="col">Song Name</th>
                     <th scope="col">Artist</th>
                     <th scope="col">Rating</th>
-                    <th scope="col">Add To Playlist</th>
+                    <th scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,7 +46,10 @@
                         <td>{{song.songname}}</td>
                         <td>{{song.artist}}</td>
                         <td>{{song.rating}}</td>
-                        <td><a class="text-danger">Add</a></td>
+                        <td>
+                            <button class="text-danger">Add To Playlist</button><br/>
+                            <button class="text-danger" (click)="rateTheSong(this.song.id)">Rate It</button><br/>
+                        </td>
                     </tr>
                 </tbody>
                 <!-- <tr>

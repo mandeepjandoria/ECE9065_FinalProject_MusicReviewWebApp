@@ -10,7 +10,7 @@ router.get('/:id', getAllReviewsForSong);
 module.exports = router;
 
 function create(req, res, next) {
-    reviewService.create(req.body)
+    reviewService.create(req.body, req.param.id)
         .then(() => res.json({}))
         .catch(err => next(err));
 }

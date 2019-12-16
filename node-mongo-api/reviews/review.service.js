@@ -16,7 +16,7 @@ async function getAllById(id) {
 async function create(reviewParam) {
     const review = new Review(reviewParam);
 
-    review.songid = reviewParam.songid;
+    review.songid = reviewParam.id;
     review.rating = reviewParam.rating;
     review.comments = reviewParam.comments;
     review.visibility = reviewParam.visibility;

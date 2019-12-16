@@ -7,8 +7,9 @@ import { Review } from '@/_models';
 export class ReviewService {
     constructor(private http: HttpClient) { }
 
-    create(review: Review) {
-        return this.http.post(`${config.apiUrl}/reviews/create`, review);
+    // create(review: Review) {
+    create(id: string) {
+        return this.http.post(`${config.apiUrl}/reviews/create`, id);
     }
 
     getAll() {

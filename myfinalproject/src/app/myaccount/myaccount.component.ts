@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { User, Song, Playlist } from '@/_models';
-import { UserService, SongService, AuthenticationService, AlertService, PlaylistService } from '@/_services';
+import { User, Song, Playlist, Review } from '@/_models';
+import { UserService, SongService, AuthenticationService, AlertService, PlaylistService, ReviewService } from '@/_services';
 
 import { FilterPipe } from './filter.pipe';
 
@@ -27,7 +27,8 @@ export class MyAccountComponent implements OnInit {
         private alertService: AlertService,
         private userService: UserService,
         private songService: SongService,
-        private playlistService: PlaylistService
+        private playlistService: PlaylistService,
+        private reviewService: ReviewService
     ) {
         this.currentUser = this.authenticationService.currentUserValue;
     }
@@ -78,6 +79,20 @@ export class MyAccountComponent implements OnInit {
         this.playlistService.getAll()
             .pipe(first())
             .subscribe(playlists => this.playlists = playlists);
+    }
+
+    private rateTheSong(id: string){
+        debugger;
+        this.reviewService.create(id)
+            .pipe(first())
+            .subscribe(data => {
+                this.alertService.success('Review has been added successfully.', true);
+                this.router.navigate(['/myaccount']);
+            },
+            error => {
+                this.alertService.error(error);
+                this.loading = false;
+            });
     }
 
     onSubmit() {
