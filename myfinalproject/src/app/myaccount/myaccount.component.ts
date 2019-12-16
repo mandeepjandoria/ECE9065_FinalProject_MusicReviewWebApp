@@ -115,7 +115,7 @@ export class MyAccountComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Playlist has been created successfully.', true);
-                    this.router.navigate(['/myaccount']);
+                    this.router.navigate(['/home']);
                 },
                 error => {
                     this.alertService.error(error);

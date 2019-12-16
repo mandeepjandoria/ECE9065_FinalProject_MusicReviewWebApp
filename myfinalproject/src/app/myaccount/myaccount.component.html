@@ -62,9 +62,9 @@
             <form [formGroup]="playlistForm" (ngSubmit)="addPlaylist()">
                 <div class="form-group">
                     <label for="listname">Playlist Name</label>
-                    <input type="text" formControlName="listname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.listname.errors }" />
-                    <div *ngIf="submitted && f.listname.errors" class="invalid-feedback">
-                        <div *ngIf="f.listname.errors.required">Playlist name is required</div>
+                    <input type="text" formControlName="listname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f1.listname.errors }" />
+                    <div *ngIf="submitted && f1.listname.errors" class="invalid-feedback">
+                        <div *ngIf="f1.listname.errors.required">Playlist name is required</div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -84,9 +84,9 @@
                 </div>
                 <div class="form-group">
                     <label for="createdby">Created By</label>
-                    <input type="text" formControlName="createdby" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createdby.errors }" />
-                    <div *ngIf="submitted && f.createdby.errors" class="invalid-feedback">
-                        <div *ngIf="f.createdby.errors.required">Created By is required</div>
+                    <input type="text" formControlName="createdby" class="form-control" [ngClass]="{ 'is-invalid': submitted && f1.createdby.errors }" />
+                    <div *ngIf="submitted && f1.createdby.errors" class="invalid-feedback">
+                        <div *ngIf="f1.createdby.errors.required">Created By is required</div>
                     </div>
                 </div>
                 <div class="form-group">
