@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
     listname: { type: String, required: true },
-    description: { type: Number, required: false },
+    description: { type: String, required: false },
     visibility: { type: String, required: false },
     createdby: { type: String, required: true },
-    songs[]: { type: String, required: false }
+    songs: { type: Array, required: false }
 });
 
 schema.set('toJSON', { virtuals: true });

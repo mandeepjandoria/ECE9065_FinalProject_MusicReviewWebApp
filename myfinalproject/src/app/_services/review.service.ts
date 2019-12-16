@@ -14,4 +14,8 @@ export class ReviewService {
     create(review: Review) {
         return this.http.post(`${config.apiUrl}/reviews/create`, review);
     }
+
+    getAllReviews() {
+        return this.http.get<Review[]>(`${config.apiUrl}/reviews`);
+    }
 }

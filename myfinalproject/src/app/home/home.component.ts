@@ -34,4 +34,10 @@ export class HomeComponent implements OnInit {
             .pipe(first())
             .subscribe(reviews => this.reviews = reviews);
     }
+
+    private getAllReviews() {
+        this.reviewService.getAllReviews()
+            .pipe(first())
+            .subscribe(reviews => this.reviews = reviews);
+    }
 }
