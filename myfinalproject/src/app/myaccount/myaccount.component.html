@@ -26,7 +26,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
+        <div>
             <div>
                 <h3>Songs Available:</h3>
                 <table class="table table-hover">
@@ -47,8 +47,52 @@
                         <td>{{song.artist}}</td>
                         <td>{{song.rating}}</td>
                         <td>
-                            <button class="text-danger">Add To Playlist</button><br/>
-                            <button class="text-danger" (click)="rateTheSong(this.song.id)">Rate It</button><br/>
+                            <button class="panel-title">Add To Playlist</button><br/><br/>
+                            <button class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1">Add Reviews</a>
+                            </button>
+                            <div id="collapse1" class="panel-collapse collapse">
+                                <form [formGroup]="ratingForm" (ngSubmit)="addReviews(this.song.id)">
+                                    <div class="form-group">
+                                        <label for="rating">Rating(1 to 5)</label>
+                                        <input type="number" formControlName="rating" class="form-control" [ngClass]="{ 'is-invalid': submitted && f2.rating.errors }" />
+                                        <div *ngIf="submitted && f1.rating.errors" class="invalid-feedback">
+                                            <div *ngIf="f2.rating.errors.required">Rating is required</div>
+                                            <div *ngIf="f2.rating.errors.maxLength">Enter only one dight from 1 to 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comments">Comments</label>
+                                        <input type="text" formControlName="comments" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="visibility">Visibility</label>
+                                        <select name="visibility" formControlName="visibility" class="form-control">
+                                            <option value="private">Private</option>
+                                            <option value="public">Public</option>
+                                          </select>
+                                        <!-- <input type="text" formControlName="year" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.year.errors }" />
+                                        <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                                            <div *ngIf="f.year.errors.required">Year is required</div>
+                                        </div> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="createdby">Created By</label>
+                                        <input type="text" formControlName="createdby" [disabled]="this.currentUser" class="form-control" [ngClass]="{ 'is-invalid': submitted && f1.createdby.errors }" />
+                                        <div *ngIf="submitted && f1.createdby.errors" class="invalid-feedback">
+                                            <div *ngIf="f1.createdby.errors.required">Created By is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button [disabled]="loading" class="btn btn-primary">
+                                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                            Add Review
+                                        </button>
+                                    </div>
+                                </form>
+
+                    
+                            </div>
                         </td>
                     </tr>
                 </tbody>

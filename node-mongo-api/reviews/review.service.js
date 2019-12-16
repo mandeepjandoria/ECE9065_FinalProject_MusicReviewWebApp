@@ -13,10 +13,10 @@ async function getAllById(id) {
     return await Review.find({'songid': id});
 }
 
-async function create(reviewParam) {
+async function create(reviewParam, id) {
     const review = new Review(reviewParam);
 
-    review.songid = reviewParam.id;
+    review.songid = reviewParam.rating;
     review.rating = reviewParam.rating;
     review.comments = reviewParam.comments;
     review.visibility = reviewParam.visibility;

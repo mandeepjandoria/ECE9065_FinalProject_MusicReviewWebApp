@@ -14,10 +14,12 @@ export class MyAccountComponent implements OnInit {
     users = [];
     songs = [];
     playlists = [];
+    reviews = [];
     songForm: FormGroup;
     playlistForm: FormGroup;
     loading = false;
     submitted = false;
+    ratingForm: FormGroup;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -51,11 +53,19 @@ export class MyAccountComponent implements OnInit {
             visibility: [''],
             createdby: ['', Validators.required]
         });
+
+        this.ratingForm = this.formBuilder.group({
+            rating: ['', Validators.required],
+            comments: [''],
+            visibility: [''],
+            createdby: ['this.currentUser', Validators.required]
+        });
     }
 
     // convenience getter for easy access to form fields
     get f() { return this.songForm.controls; }
     get f1() { return this.playlistForm.controls; }
+    get f2() { return this.ratingForm.controls; }
 
     // deleteUser(id: number) {
     //     this.userService.delete(id)
@@ -81,9 +91,11 @@ export class MyAccountComponent implements OnInit {
             .subscribe(playlists => this.playlists = playlists);
     }
 
-    private rateTheSong(id: string){
+    private addReviews(id: string){
+    //private addReviews(){
         debugger;
-        this.reviewService.create(id)
+        // this.reviewService.create(id)
+        this.reviewService.create(this.ratingForm.value, id)
             .pipe(first())
             .subscribe(data => {
                 this.alertService.success('Review has been added successfully.', true);
