@@ -56,6 +56,13 @@
                 - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
 	        </div>
         </div>
+
+        <div class="col-sm-6">
+            <h3>Playlists</h3>
+            <ul *ngFor="let playlist of playlists">
+                <li>{{playlist.listname}}</li>
+            </ul>
+        </div>
         
         <div class="col-sm-6">
             <h3>Create Playlist</h3>

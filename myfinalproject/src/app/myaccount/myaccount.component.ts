@@ -34,6 +34,7 @@ export class MyAccountComponent implements OnInit {
 
     ngOnInit() {
         this.loadAllSongs();
+        this.loadAllPlaylists();
 
         this.songForm = this.formBuilder.group({
             songname: ['', Validators.required],
@@ -71,6 +72,12 @@ export class MyAccountComponent implements OnInit {
         this.songService.getAll()
             .pipe(first())
             .subscribe(songs => this.songs = songs);
+    }
+
+    private loadAllPlaylists() {
+        this.playlistService.getAll()
+            .pipe(first())
+            .subscribe(playlists => this.playlists = playlists);
     }
 
     onSubmit() {
