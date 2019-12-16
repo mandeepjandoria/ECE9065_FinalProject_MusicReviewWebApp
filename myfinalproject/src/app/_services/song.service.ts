@@ -15,4 +15,8 @@ export class SongService {
         return this.http.get<Song[]>(`${config.apiUrl}/songs`);
     }
 
+    delete(id: string) {
+        return this.http.delete(`${config.apiUrl}/songs/${id}`);
+    }
+
 }

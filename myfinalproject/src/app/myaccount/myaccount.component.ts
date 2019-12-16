@@ -55,10 +55,10 @@ export class MyAccountComponent implements OnInit {
         });
 
         this.ratingForm = this.formBuilder.group({
-            rating: ['', Validators.required],
+            rating: ['', [Validators.required, Validators.max(5), Validators.min(1)]],
             comments: [''],
             visibility: [''],
-            createdby: ['this.currentUser', Validators.required]
+            createdby: ['', [Validators.required, Validators.email]]
         });
     }
 
