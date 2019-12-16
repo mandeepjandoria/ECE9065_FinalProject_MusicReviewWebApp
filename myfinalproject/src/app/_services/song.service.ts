@@ -7,11 +7,12 @@ import { Song } from '@/_models';
 export class SongService {
     constructor(private http: HttpClient) { }
 
+    create(song: Song) {
+        return this.http.post(`${config.apiUrl}/songs/create`, song);
+    }
+
     getAll() {
         return this.http.get<Song[]>(`${config.apiUrl}/songs`);
     }
 
-    create(song: Song) {
-        return this.http.post(`${config.apiUrl}/songs/create`, song);
-    }
 }

@@ -5,7 +5,8 @@ const Review = require('../reviews/review.model.js');
 
 module.exports = {
     create,
-	getAllById
+    getAllById,
+    getAll
 };
 
 async function getAllById(id) {
@@ -25,3 +26,6 @@ async function create(reviewParam) {
     await review.save();
 }
 
+async function getAll() {
+	return await Review.find();
+}

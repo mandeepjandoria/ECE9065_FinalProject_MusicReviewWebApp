@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         this.loadAllSongs();
+        this.getAllReviews();
+        // this.viewReviews();
     }
 
     private loadAllSongs() {
@@ -36,7 +38,7 @@ export class HomeComponent implements OnInit {
     }
 
     private getAllReviews() {
-        this.reviewService.getAllReviews()
+        this.reviewService.getAll()
             .pipe(first())
             .subscribe(reviews => this.reviews = reviews);
     }
