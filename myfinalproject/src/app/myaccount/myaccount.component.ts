@@ -21,6 +21,25 @@ export class MyAccountComponent implements OnInit {
     submitted = false;
     ratingForm: FormGroup;
 
+    characters = [
+        'Tum Hi Ho',
+        'Hint',
+        'Black',
+        'Sohne Lagde',
+        'Hello',
+        'Let Me Love You',
+        'Work',
+        'Haani',
+        'My Moon',
+        'Mere Rashke Qamar',
+        'Filhaal',
+        'Dilbara',
+        'Blinding Lights',
+        'Dont Call Me Angel',
+        'My Own Dance',
+        'Raising Hell'
+      ]
+
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
