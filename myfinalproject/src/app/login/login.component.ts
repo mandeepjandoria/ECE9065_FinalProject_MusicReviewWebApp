@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
     loading = false;
     submitted = false;
     returnUrl: string;
+    returnGoogleUrl: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/myaccount';
+        this.returnGoogleUrl = this.route['returnGoogleUrl'] || 'www.gmail.com';
     }
 
     // convenience getter for easy access to form fields
@@ -60,5 +62,9 @@ export class LoginComponent implements OnInit {
                     this.alertService.error(error);
                     this.loading = false;
                 });
+    }
+
+    buttonGoogle() {
+        this.router.navigate([this.returnGoogleUrl]);
     }
 }

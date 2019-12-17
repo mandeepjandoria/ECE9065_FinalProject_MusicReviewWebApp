@@ -21,6 +21,10 @@
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Login
         </button>
+        <label>Login With </label>
+        <button id="google" (click)="buttonGoogle()" class="btn btn-primary">
+            Google
+        </button>
         <a routerLink="/register" class="btn btn-link">Register</a>
     </div>
 </form>
