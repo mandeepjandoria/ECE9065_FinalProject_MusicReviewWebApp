@@ -33,6 +33,10 @@ export class MyAccountComponent implements OnInit {
         private reviewService: ReviewService
     ) {
         this.currentUser = this.authenticationService.currentUserValue;
+        // if(currentUser != "admin")
+        // {
+        //     deleteButton.display = 'none';
+        // }
     }
 
     ngOnInit() {
@@ -124,7 +128,7 @@ export class MyAccountComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Song has been added successfully.', true);
-                    this.router.navigate(['/myaccount']);
+                    this.router.navigate(['/home']);
                 },
                 error => {
                     this.alertService.error(error);
