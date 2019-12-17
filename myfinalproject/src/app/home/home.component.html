@@ -1,3 +1,19 @@
+<!-- <div ng-app="myApp" ng-controller="charactersCtrl"> -->
+<div>
+    <label><strong>Search Song Here: </strong></label><br/>
+    <input [(ngModel)]="searchText" placeholder="Type to search a song">
+    <table class="table table-hover">
+        <!-- <thead>
+            <tr>
+                <th scope="col">Song Name</th>
+            </tr>
+        </thead> -->
+        <tbody *ngFor="let c of characters | filter: searchText">
+            <td><li>{{c}}</li></td>
+        </tbody>
+    </table> 
+</div>
+
 <h2>Top Songs</h2>
 <div>
     <ul *ngFor="let song of songs">

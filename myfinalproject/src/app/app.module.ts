@@ -2,7 +2,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { FilterPipe }from './filter.pipe';
+  
+import {FormsModule} from '@angular/forms';
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
 
@@ -21,7 +23,8 @@ import { AboutComponent } from './about';
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        appRoutingModule
+        appRoutingModule,
+        FormsModule
     ],
     declarations: [
         AppComponent,
@@ -30,7 +33,8 @@ import { AboutComponent } from './about';
         RegisterComponent,
         MyAccountComponent,
         AlertComponent,
-        AboutComponent
+        AboutComponent,
+        FilterPipe 
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
