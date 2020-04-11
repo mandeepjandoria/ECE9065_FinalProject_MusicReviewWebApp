@@ -4,4 +4,5 @@
     year: number;
     genre: string;
     createdby: string;
+    rating: string;
 }

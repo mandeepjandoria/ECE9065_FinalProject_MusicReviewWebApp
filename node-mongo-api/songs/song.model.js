@@ -6,7 +6,8 @@ const schema = new Schema({
     artist: { type: String, required: true },
     year: { type: Number, required: true },
     genre: { type: String, required: true },
-    createdby: { type: String, required: true }
+    createdby: { type: String, required: true },
+    rating: { type: String, required: false, default: 'No Ratings' }
 });
 
 schema.set('toJSON', { virtuals: true });
